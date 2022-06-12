@@ -14,7 +14,7 @@ class _ToDoAppState extends State<ToDoApp> {
   addValue() {
     setState(() {
       allTodos.add(names.text);
-      allTodos.clear();
+      names.clear();
     });
   }
 
@@ -26,8 +26,11 @@ class _ToDoAppState extends State<ToDoApp> {
       ),
       body: Column(
         children: [
-          TextField(
-            controller: names,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.7,
+            child: TextField(
+              controller: names,
+            ),
           ),
           ElevatedButton(
             onPressed: () {
