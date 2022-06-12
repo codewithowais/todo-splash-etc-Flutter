@@ -14,7 +14,7 @@ class _ToDoAppState extends State<ToDoApp> {
   addValue() {
     setState(() {
       allTodos.add(names.text);
-      
+      allTodos.clear();
     });
   }
 
