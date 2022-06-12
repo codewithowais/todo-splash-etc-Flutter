@@ -12,6 +12,13 @@ class ToDoApp extends StatefulWidget {
 class _ToDoAppState extends State<ToDoApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Todo App"),
+      ),
+      body: Column(
+        children: [],
+      ),
+    );
   }
 }
