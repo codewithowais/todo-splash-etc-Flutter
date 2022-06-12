@@ -32,11 +32,17 @@ class _ToDoAppState extends State<ToDoApp> {
               controller: names,
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              addValue();
-            },
-            child: const Text("Add Todo"),
+          Container(
+            margin: const EdgeInsets.only(
+              top: 20,
+              bottom: 20,
+            ),
+            child: ElevatedButton(
+              onPressed: () {
+                addValue();
+              },
+              child: const Text("Add Todo"),
+            ),
           ),
           Expanded(
             child: ListView.builder(
