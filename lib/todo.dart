@@ -30,6 +30,7 @@ class _ToDoAppState extends State<ToDoApp> {
           ),
           Expanded(
             child: ListView.builder(
+              itemCount: allTodos.length,
               itemBuilder: ((context, index) {
                 return ListTile(
                   tileColor: Colors.grey,
