@@ -83,6 +83,7 @@ class _ToDoAppState extends State<ToDoApp> {
                                                 index + 1,
                                                 {updatenames.text},
                                               );
+                                              updatenames.clear();
                                             },
                                           );
                                         },
