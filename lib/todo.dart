@@ -11,6 +11,10 @@ class _ToDoAppState extends State<ToDoApp> {
   List<String> allTodos = [];
   TextEditingController names = TextEditingController();
 
+  addValue() {
+    allTodos.add(names.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +27,9 @@ class _ToDoAppState extends State<ToDoApp> {
             controller: names,
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              addValue();
+            },
             child: const Text("Add Todo"),
           ),
           Expanded(
