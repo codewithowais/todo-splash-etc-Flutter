@@ -10,6 +10,9 @@ class ToDoApp extends StatefulWidget {
 }
 
 class _ToDoAppState extends State<ToDoApp> {
+  List<String> allTodos = [];
+  TextEditingController names = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +20,22 @@ class _ToDoAppState extends State<ToDoApp> {
         title: const Text("Todo App"),
       ),
       body: Column(
-        children: [],
+        children: [
+          TextField(
+            controller: names,
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text("Add Todo"),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: ((context, index) {
+                return ListTile();
+              }),
+            ),
+          ),
+        ],
       ),
     );
   }
