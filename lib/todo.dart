@@ -76,13 +76,15 @@ class _ToDoAppState extends State<ToDoApp> {
                                     ElevatedButton(
                                         onPressed: () {
                                           Navigator.of(context).pop();
-                                          setState(() {
-                                            allTodos.replaceRange(
-                                              index,
-                                              index + 1,
-                                              {updatenames.text},
-                                            );
-                                          });
+                                          setState(
+                                            () {
+                                              allTodos.replaceRange(
+                                                index,
+                                                index + 1,
+                                                {updatenames.text},
+                                              );
+                                            },
+                                          );
                                         },
                                         child: const Text("Edit"))
                                   ],
