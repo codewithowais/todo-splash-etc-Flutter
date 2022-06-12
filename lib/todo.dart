@@ -12,7 +12,10 @@ class _ToDoAppState extends State<ToDoApp> {
   TextEditingController names = TextEditingController();
 
   addValue() {
-    allTodos.add(names.text);
+    setState(() {
+      allTodos.add(names.text);
+      
+    });
   }
 
   @override
