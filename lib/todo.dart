@@ -10,6 +10,7 @@ class ToDoApp extends StatefulWidget {
 class _ToDoAppState extends State<ToDoApp> {
   List<String> allTodos = [];
   TextEditingController names = TextEditingController();
+  TextEditingController updatenames = TextEditingController();
 
   addValue() {
     setState(() {
@@ -19,12 +20,6 @@ class _ToDoAppState extends State<ToDoApp> {
   }
 
   deleteValue(index) {
-    setState(() {
-      allTodos.removeAt(index);
-    });
-  }
-
-  editValue(index) {
     setState(() {
       allTodos.removeAt(index);
     });
@@ -69,7 +64,31 @@ class _ToDoAppState extends State<ToDoApp> {
                       children: [
                         IconButton(
                           onPressed: () {
-                            editValue(index);
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text("Edit ToDo"),
+                                  content: TextField(
+                                    controller: updatenames,
+                                  ),
+                                  actions: [
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          setState(() {
+                                            allTodos.replaceRange(
+                                              index,
+                                              index + 1,
+                                              {updatenames.text},
+                                            );
+                                          });
+                                        },
+                                        child: const Text("Edit"))
+                                  ],
+                                );
+                              },
+                            );
                           },
                           icon: const Icon(Icons.edit),
                         ),
