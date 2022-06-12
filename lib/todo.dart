@@ -24,6 +24,12 @@ class _ToDoAppState extends State<ToDoApp> {
     });
   }
 
+  editValue(index) {
+    setState(() {
+      allTodos.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,11 +63,24 @@ class _ToDoAppState extends State<ToDoApp> {
                 return ListTile(
                   tileColor: Colors.grey,
                   title: Text(allTodos[index]),
-                  trailing: IconButton(
-                    onPressed: () {
-                      deleteValue(index);
-                    },
-                    icon: const Icon(Icons.delete),
+                  trailing: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.1,
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            editValue(index);
+                          },
+                          icon: const Icon(Icons.edit),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            deleteValue(index);
+                          },
+                          icon: const Icon(Icons.delete),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               }),
